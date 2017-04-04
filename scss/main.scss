@@ -1,0 +1,370 @@
+/**
+ * Description: main styles.
+ * Version: 1.0.0
+ * Last update: 02.04.2017
+ * Author: alex.maslennikova19@gmail.com
+ */
+
+
+@import "components/variables";
+@import "components/normalize";
+@import "components/include-media";
+@import "components/mixins";
+@import "components/fonts";
+@import "components/global";
+@import "components/type";
+@import "components/icons";
+
+
+$breakpoints: (
+	'screen-xs': 400px,
+	'screen-sm': 768px,
+	'screen-md': 1024px,
+	'screen-lg': 1170px
+);
+
+// keywords
+$media-expressions: (
+	'screen': 'screen',
+	'print': 'print',
+	'handheld': 'handheld',
+	'landscape': '(orientation: landscape)',
+	'portrait': '(orientation: portrait)',
+	'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
+	'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
+);
+
+
+@include media('>=screen-sm'){
+	h3, .h3{
+		font-size:ceil($heading-font-size-3*1.166);
+	}
+}
+
+//---------------Global-----------------//
+
+.background-primary{
+	background: $background-primary-color;
+}
+
+.background-darken-primary{
+	background: $background-darken-primary-color;
+}
+
+.color-primary{
+	color: $text-primary-color;
+}
+
+.color-danger{
+	color: $text-danger-color;
+}
+
+.color-dark{
+	color: $text-darken-color;
+}
+
+.background-danger{
+	background: $background-danger-color;
+}
+.title-danger{
+	color: $background-danger-color;
+}
+
+
+//-----------------Mobile---------------//
+.section-heading{
+	text-align: center;
+	.heading-description{
+		text-transform: capitalize;
+		color: $text-darken-color;
+		opacity: 0.4;
+		font-size: 20px;
+			& +.heading-title{
+			margin-top: 0;
+			margin-bottom: 18px;
+		}
+	}
+}
+
+.container{
+	padding: 0 5px;
+	min-width: 320px;
+	max-width: 375px;
+}
+
+.timeline{
+	padding: 26px 0;
+}
+
+.feature{
+
+	&-title{
+		font-size: 22px;
+		position: relative;
+	}
+
+	&-item{
+		position:relative;
+		padding-left: 90px;
+		padding-top: 20px;
+		padding-bottom: 13px;
+		margin-bottom: 3px;
+		&:before{
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: 8px;
+			background: $background-danger-color;
+			transform: skewY(-17deg);
+		}
+		&:last-child:before{
+			border: 1px solid #000;
+		}
+		&.primary:before{
+			background:$background-darken-primary-color;
+		}
+	}
+
+	&-number{
+		position: absolute;
+		left: 25px;
+		top: 13px;
+		width: 55px;
+		height: 55px;
+		border-radius: 50%;
+		&.background-primary{
+			border: 5px solid $background-darken-primary-color;
+		}
+		&.background-danger{
+			border: 5px solid $background-darken-danger-color;
+		}
+		&:after {
+			content: '';
+			display: block;
+			width: 10px;
+			height: 1px;
+			position: absolute;
+			top: 50%;
+			background: inherit;
+			left: -20px;
+		}
+		.circle{
+			position: relative;
+			top: -5px;
+			left: -5px;
+			input{
+				border: 0;
+				background: transparent;
+				font-size: 0;
+			}
+		}
+		.circle-text{
+			@include xycenter;
+			color: #fff;
+			font-size: 20px;
+		}
+	}
+
+	&-icon{
+		position: absolute;
+		transform: translate(100%,0);
+		right:-5px;
+		top: 5px;
+		font-size: 28px;
+		&.icon-document{
+			top: 4px;
+		}
+		&.icon-talk{
+			font-size: 26px;
+			top: 4px;
+		}
+		&.icon-micro{
+			font-size: 34px;
+			top: -3px;
+		}
+		&.icon-money{
+			font-size: 32px;
+			top: 3px;
+		}
+	}
+}
+
+//---------Width >= 400px--------------//
+
+	@include media('>=screen-xs'){
+	.feature-title{
+		font-size: 25px;
+	}
+	.feature-description{
+		font-size: 16px;
+		line-height: 1.4;
+	}
+	.feature-item{
+		padding-left: 116px;
+		&:before{
+			width: 10px;
+		}
+	}
+	.feature-number{
+		left: 43px;
+		top: 18px;
+		&:after{
+			width: 15px;
+			left: -30px;
+		}
+	}
+}
+
+//-----------Width >= 1024px-----------//
+
+@include media('>=screen-md'){
+	.timeline{
+		padding: 82px 0;
+	}
+
+	.container{
+		max-width: 1270px;
+		padding: 0 20px;
+		overflow-x: hidden;
+	}
+
+	.section-heading{
+		margin-bottom: 78px;
+		.heading-description{
+			font-size: 13px;
+			margin-bottom: 3px;
+			& +.heading-title{
+				margin-top: 0;
+				margin-bottom: 1em;
+				line-height: 1.5;
+			}
+		}
+	}
+
+	.feature{
+		&-title{
+			font-size: 22px;
+		}
+
+		&-description{
+			font-size: 14px;
+		}
+
+		&-holder{
+			display: flex;
+			padding-bottom: 250px;
+			margin-bottom: 40px;
+			width: 94%;
+			max-width: 1170px;
+		}
+
+		&-item{
+			position: relative;
+			width: 20%;
+			padding-left: 51px;
+			padding-top: 0;
+			padding-bottom: 40px;
+			margin-bottom: 0;
+			margin-right: 3px;
+			&:before{
+				content:'';
+				display: block;
+				position: absolute;
+				left: 0;
+				top: 100%;
+				height: 10px;
+				width: 100%;
+				transform: skewX(-25deg);
+			}
+			&:after{
+				content: '';
+				display: block;
+				width: 1px;
+				height: calc(100% - 80px);
+				position: absolute;
+				bottom: 15px;
+				background: $background-danger-color;
+				left: 9px;
+			}
+			&.primary:after{
+				content: '';
+				top: calc(100% + 23px);
+				height: 64px;
+				background: $background-darken-primary-color;
+			}
+			&-holder{
+				position: relative;
+				margin-right: -60px;
+			}
+			&.primary &-holder{
+				position: absolute;
+				width: calc(100% + 19px);
+				height: 100%;
+				top: 100px;
+				transform: translate(0, 100%);
+			}
+		}
+
+		&-number{
+			left: -69px;
+			top: 0;
+			&:after{
+				display:none;
+			}
+		}
+
+		&-icon{
+			font-size: 29px;
+			position: absolute;
+			top: 3px;
+			right: -10px;
+			transform: translate(100%, 0);
+			&.icon-primary{
+				color: $background-darken-primary-color;
+			}
+			&.icon-danger{
+				color: $background-danger-color;
+			}
+			&.icon-document{
+				font-size: 30px;
+				top: 3px;
+			}
+			&.icon-talk{
+				font-size: 27px;
+				top: 0;
+			}
+			&.icon-micro{
+				font-size: 40px;
+				top: -9px;
+			}
+			&.icon-money{
+				font-size: 32px;
+				top: 3px;
+			}
+		}
+
+		&-text{
+			position: relative;
+			padding-top: 2px;
+		}
+	}
+}
+
+
+//---------------Width >= 1170px--------//
+
+@include media('>=screen-lg'){
+	.feature-title{
+		font-size: 25px;
+	}
+	.feature-description{
+		font-size: 16px;
+		line-height: 1.4;
+	}
+	.feature-item-holder{
+		margin-right: -80px;
+	}
+}

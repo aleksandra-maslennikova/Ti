@@ -1,0 +1,35 @@
+
+//-----------------Global------------------------
+$container-width: 1270px;
+
+// -----------------Type--------------------------
+$text-base-color: #595959;
+$text-primary-color:#6a6570;
+$text-danger-color:#f08280;
+$text-darken-color:#030303;
+$body-color: $text-base-color;
+$body-bg: #fff;
+$font-size-base: 14px;
+$line-height-base: 1.5;
+$font-family-base: 'Open Sans', Arial, sans-serif;
+$font-weight-base: 300;
+$link-color: $text-primary-color;
+$link-color-hover: $text-primary-color;
+$heading-color: $text-base-color;
+$heading-font-weight: 300;
+$heading-font-size-3: ceil($font-size-base * 1.714); //~24px
+
+//-------------Backgrounds--------------------------
+$background-danger-color: #eb5652;
+$background-primary-color:#473a5a;
+$background-darken-danger-color: #e34842;
+$background-darken-primary-color:#2b2238;
+
+//--------------Icons--------------------------------
+$icomoon-font-path: "../fonts/icons";
+
+$icon-house: "\e901";
+$icon-money: "\e903";
+$icon-talk: "\e904";
+$icon-document: "\e900";
+$icon-micro: "\e902";
